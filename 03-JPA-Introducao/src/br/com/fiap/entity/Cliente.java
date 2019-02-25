@@ -21,131 +21,122 @@ import javax.persistence.Transient;
 @SequenceGenerator(name = "cliente", sequenceName = "SQ_T_CLIENTE", allocationSize = 1)
 public class Cliente {
 
-	@Id
-	@Column(name = "cd_cliente")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cliente")
-	private int codigo;
+  @Id
+  @Column(name = "cd_cliente")
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cliente")
+  private int codigo;
 
-	@Column(name = "nm_cliente", nullable = false, length = 50)
-	private String nome;
-	
-	@Column(name="nr_cartao")
-	private int cartao;
-	
-	@Temporal(TemporalType.DATE)
-	@Column(name="dt_nascimento")
-	private Calendar dataNascimento;
-	
-	@Column(name="ds_sexo")
-	@Enumerated(EnumType.STRING)
-	private Sexo sexo;
-	
-	@Column(name="st_ativo")
-	private boolean ativo;
-	
-	@Lob
-	@Column(name="fl_foto")
-	private byte[] foto;
-	
-	@Transient
-	private int numeroComanda;
-	
-	public Cliente() {
-		super();
-	}
-	
-	public Cliente(int codigo, String nome, int cartao, Calendar dataNascimento, Sexo sexo, boolean ativo,
-			byte[] foto) {
-		super();
-		this.codigo = codigo;
-		this.nome = nome;
-		this.cartao = cartao;
-		this.dataNascimento = dataNascimento;
-		this.sexo = sexo;
-		this.ativo = ativo;
-		this.foto = foto;
-	}
+  @Column(name = "nm_cliente", nullable = false, length = 50)
+  private String nome;
 
-	public Cliente(String nome, int cartao, Calendar dataNascimento, Sexo sexo, boolean ativo, byte[] foto) {
-		super();
-		this.nome = nome;
-		this.cartao = cartao;
-		this.dataNascimento = dataNascimento;
-		this.sexo = sexo;
-		this.ativo = ativo;
-		this.foto = foto;
-	}
+  @Column(name = "nr_cartao")
+  private int cartao;
 
+  @Temporal(TemporalType.DATE)
+  @Column(name = "dt_nascimento")
+  private Calendar dataNascimento;
 
+  @Column(name = "ds_sexo")
+  @Enumerated(EnumType.STRING)
+  private Sexo sexo;
 
-	public int getCodigo() {
-		return codigo;
-	}
+  @Column(name = "st_ativo")
+  private boolean ativo;
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
-	}
+  @Lob
+  @Column(name = "fl_foto")
+  private byte[] foto;
 
-	public String getNome() {
-		return nome;
-	}
+  @Transient
+  private int numeroComanda;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+  public Cliente() {
+    super();
+  }
 
-	public int getCartao() {
-		return cartao;
-	}
+  public Cliente(int codigo, String nome, int cartao, Calendar dataNascimento, Sexo sexo, boolean ativo, byte[] foto) {
+    super();
+    this.codigo = codigo;
+    this.nome = nome;
+    this.cartao = cartao;
+    this.dataNascimento = dataNascimento;
+    this.sexo = sexo;
+    this.ativo = ativo;
+    this.foto = foto;
+  }
 
-	public void setCartao(int cartao) {
-		this.cartao = cartao;
-	}
+  public Cliente(String nome, int cartao, Calendar dataNascimento, Sexo sexo, boolean ativo, byte[] foto) {
+    super();
+    this.nome = nome;
+    this.cartao = cartao;
+    this.dataNascimento = dataNascimento;
+    this.sexo = sexo;
+    this.ativo = ativo;
+    this.foto = foto;
+  }
 
-	public Calendar getDataNascimento() {
-		return dataNascimento;
-	}
+  public int getCodigo() {
+    return codigo;
+  }
 
-	public void setDataNascimento(Calendar dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
+  public void setCodigo(int codigo) {
+    this.codigo = codigo;
+  }
 
-	public Sexo getSexo() {
-		return sexo;
-	}
+  public String getNome() {
+    return nome;
+  }
 
-	public void setSexo(Sexo sexo) {
-		this.sexo = sexo;
-	}
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
 
-	public boolean isAtivo() {
-		return ativo;
-	}
+  public int getCartao() {
+    return cartao;
+  }
 
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
-	}
+  public void setCartao(int cartao) {
+    this.cartao = cartao;
+  }
 
-	public byte[] getFoto() {
-		return foto;
-	}
+  public Calendar getDataNascimento() {
+    return dataNascimento;
+  }
 
-	public void setFoto(byte[] foto) {
-		this.foto = foto;
-	}
+  public void setDataNascimento(Calendar dataNascimento) {
+    this.dataNascimento = dataNascimento;
+  }
 
-	public int getNumeroComanda() {
-		return numeroComanda;
-	}
+  public Sexo getSexo() {
+    return sexo;
+  }
 
-	public void setNumeroComanda(int numeroComanda) {
-		this.numeroComanda = numeroComanda;
-	}
+  public void setSexo(Sexo sexo) {
+    this.sexo = sexo;
+  }
+
+  public boolean isAtivo() {
+    return ativo;
+  }
+
+  public void setAtivo(boolean ativo) {
+    this.ativo = ativo;
+  }
+
+  public byte[] getFoto() {
+    return foto;
+  }
+
+  public void setFoto(byte[] foto) {
+    this.foto = foto;
+  }
+
+  public int getNumeroComanda() {
+    return numeroComanda;
+  }
+
+  public void setNumeroComanda(int numeroComanda) {
+    this.numeroComanda = numeroComanda;
+  }
 
 }
-
-
-
-
-
-

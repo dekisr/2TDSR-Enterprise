@@ -5,14 +5,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Retention(RetentionPolicy.RUNTIME)//mantem a anotação até a execução
-@Target(ElementType.FIELD) //anotação só para atributos
+@Retention(RetentionPolicy.RUNTIME) // mantem a anotação até a execução
+@Target(ElementType.FIELD) // anotação só para atributos
 public @interface Coluna {
 
-	String nome();
-	
-	String tipo();
-	
-	int tamanho() default 255;
-	
+  String nome();
+
+  String tipo();
+
+  int tamanho() default 255;
+
 }

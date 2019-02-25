@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class Crianca extends Pessoa {
 
-	@Override
-	@Deprecated //método obsoleto
-	public void falar() {
-		new Date("");
-	}
-	
+  @Override
+  @Deprecated // método obsoleto
+  public void falar() {
+    new Date("");
+  }
+
 }
