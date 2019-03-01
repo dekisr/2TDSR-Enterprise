@@ -9,21 +9,21 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "T_EXE01_VEICULO")
+@Table(name = "T_EXE01_VEICULO")
 @SequenceGenerator(name = "veiculo", sequenceName = "SQ_T_EXE01_VEICULO", allocationSize = 1)
 public class Veiculo {
-  
+
   @Id
-  @Column (name = "cd_veiculo")
+  @Column(name = "cd_veiculo")
   @GeneratedValue(generator = "veiculo", strategy = GenerationType.SEQUENCE)
   private int codigo;
-  
-  @Column (name = "ds_placa", nullable = false, length = 9)
+
+  @Column(name = "ds_placa", nullable = false, length = 9)
   private String placa;
-  
-  @Column (name = "ds_cor", nullable = false, length = 20)
+
+  @Column(name = "ds_cor", nullable = false, length = 20)
   private String cor;
-  
-  @Column (name = "nr_ano")
+
+  @Column(name = "nr_ano")
   private int ano;
 }
