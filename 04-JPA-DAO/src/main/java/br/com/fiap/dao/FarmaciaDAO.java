@@ -5,7 +5,7 @@ import br.com.fiap.exception.CodigoInvalidoException;
 import br.com.fiap.exception.CommitException;
 
 public interface FarmaciaDAO {
-
+	
   void cadastrar(Farmacia farmacia);
 
   void deletar(int codigo) throws CodigoInvalidoException;
@@ -15,5 +15,5 @@ public interface FarmaciaDAO {
   Farmacia buscar(int codigo);
 
   void commit() throws CommitException;
-
+  
 }
