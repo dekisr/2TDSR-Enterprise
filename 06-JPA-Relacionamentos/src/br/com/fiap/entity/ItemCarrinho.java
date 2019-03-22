@@ -21,16 +21,57 @@ public class ItemCarrinho {
   private int codigo;
 
   @ManyToOne
-  @JoinColumn(name = "cd_carrinho_compra", nullable = false)
+  @JoinColumn(name = "cd_carrinho_compra", nullable = true)
   private CarrinhoCompras carrinho;
 
   @ManyToOne
-  @JoinColumn(name = "cd_produto", nullable = false)
+  @JoinColumn(name = "cd_produto", nullable = true)
   private Produto produto;
 
-  @Column(name = "nr_quantidade", nullable = false)
+  @Column(name = "nr_quantidade", nullable = true)
   private int quantidade;
 
-  @Column(name = "vl_valor", nullable = false)
+  @Column(name = "vl_valor", nullable = true)
   private double valor;
+
+  public int getCodigo() {
+    return codigo;
+  }
+
+  public void setCodigo(int codigo) {
+    this.codigo = codigo;
+  }
+
+  public CarrinhoCompras getCarrinho() {
+    return carrinho;
+  }
+
+  public void setCarrinho(CarrinhoCompras carrinho) {
+    this.carrinho = carrinho;
+  }
+
+  public Produto getProduto() {
+    return produto;
+  }
+
+  public void setProduto(Produto produto) {
+    this.produto = produto;
+  }
+
+  public int getQuantidade() {
+    return quantidade;
+  }
+
+  public void setQuantidade(int quantidade) {
+    this.quantidade = quantidade;
+  }
+
+  public double getValor() {
+    return valor;
+  }
+
+  public void setValor(double valor) {
+    this.valor = valor;
+  }
+
 }
