@@ -1,5 +1,6 @@
 package br.com.fiap.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class ItemCarrinho {
   @JoinColumn(name = "cd_carrinho_compra", nullable = true)
   private CarrinhoCompras carrinho;
 
-  @ManyToOne
+  @ManyToOne(cascade=CascadeType.PERSIST)
   @JoinColumn(name = "cd_produto", nullable = true)
   private Produto produto;
 
@@ -33,6 +34,10 @@ public class ItemCarrinho {
 
   @Column(name = "vl_valor", nullable = true)
   private double valor;
+
+  public ItemCarrinho() {
+    super();
+  }
 
   public int getCodigo() {
     return codigo;

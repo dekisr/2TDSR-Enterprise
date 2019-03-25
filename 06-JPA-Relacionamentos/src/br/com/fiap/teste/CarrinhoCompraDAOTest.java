@@ -4,6 +4,9 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -13,7 +16,9 @@ import br.com.fiap.dao.CarrinhoCompraDAO;
 import br.com.fiap.dao.ClienteDAO;
 import br.com.fiap.entity.CarrinhoCompras;
 import br.com.fiap.entity.Cliente;
+import br.com.fiap.entity.Fornecedor;
 import br.com.fiap.entity.ItemCarrinho;
+import br.com.fiap.entity.Produto;
 import br.com.fiap.exception.CodigoInvalidoException;
 import br.com.fiap.exception.CommitException;
 import br.com.fiap.impl.CarrinhoCompraDAOImpl;
@@ -47,6 +52,19 @@ class CarrinhoCompraDAOTest {
     carrinho.addItem(item1);
     carrinho.addItem(item2);
 
+    Fornecedor f1 = new Fornecedor("Natura", "1232133");
+    Fornecedor f2 = new Fornecedor("Adidas", "4562133");
+
+    List<Fornecedor> fornecedores = new ArrayList<>();
+    fornecedores.add(f1);
+    fornecedores.add(f2);
+
+    Produto produto1 = new Produto(fornecedores, "Bola", 100);
+    Produto produto2 = new Produto(fornecedores, "Papete", 50);
+    
+    item1.setProduto(produto1);
+    item2.setProduto(produto2);
+
     try {
       // clienteDao.cadastrar(cliente);
       carrinhoDao.cadastrar(carrinho);
@@ -58,6 +76,8 @@ class CarrinhoCompraDAOTest {
 
     assertNotEquals(0, cliente.getCodigo());
     assertNotEquals(0, carrinho.getCodigo());
+
+    Produto produto = new Produto();
 
     try {
       // Pesquisar o carrinho
