@@ -1,10 +1,14 @@
 package br.com.fiap.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -20,6 +24,13 @@ public class Sistema {
 
   @Column(name = "nm_sistema", length = 50, nullable = false)
   private String nome;
+
+  @OneToMany(mappedBy = "sistema")
+  private List<CasoTeste> casoTeste = new ArrayList<>();
+
+  public Sistema() {
+    super();
+  }
 
   public int getCodigo() {
     return codigo;

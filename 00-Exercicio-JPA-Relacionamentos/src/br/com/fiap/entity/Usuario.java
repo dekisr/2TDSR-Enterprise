@@ -1,10 +1,16 @@
 package br.com.fiap.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -20,6 +26,14 @@ public class Usuario {
 
   @Column(name = "nm_usuario", length = 50, nullable = false)
   private String nome;
+
+  @ManyToMany(cascade = CascadeType.PERSIST)
+  @JoinTable(name = "TAB_ITEM_TESTE_USUARIO", joinColumns = @JoinColumn(name = "cd_usuario"), inverseJoinColumns = @JoinColumn(name = "cd_itemTeste"))
+  private List<ItemTeste> itemTeste;
+
+  public Usuario() {
+    super();
+  }
 
   public int getCodigo() {
     return codigo;
