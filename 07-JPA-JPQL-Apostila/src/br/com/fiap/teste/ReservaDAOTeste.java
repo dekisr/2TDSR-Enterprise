@@ -16,33 +16,37 @@ import br.com.fiap.entity.Reserva;
 
 class ReservaDAOTeste {
 
-	private static ReservaDAO dao;
-	
-	@BeforeAll
-	public static void iniciar() {
-		dao = new ReservaDAOImpl(EntityManagerFactorySingleton
-			.getInstance().createEntityManager());
-	}
-	
-	@Test
-	void pesquisarPorDataTest() {
-		Calendar data = new GregorianCalendar(2017,Calendar.MARCH,20);
-		List<Reserva> lista = dao.buscarPorData(data);
-		for (Reserva reserva : lista) {
-			assertEquals(data, reserva.getDataReserva());
-		}
-	}
-	
-	@Test
-	void listar() {
-		
-		List<Reserva> lista = dao.listar();
-		
-		assertEquals(4, lista.size());
-		
-	}
+  private static ReservaDAO dao;
+
+  @BeforeAll
+  public static void iniciar() {
+    dao = new ReservaDAOImpl(EntityManagerFactorySingleton
+        .getInstance().createEntityManager());
+  }
+
+  @Test
+  void pesquisarPorDataTest() {
+    Calendar data = 
+        new GregorianCalendar(2017, 2, 20);
+    List<Reserva> lista = dao.buscarPorData(data);
+
+    assertEquals(1, lista.size());
+
+    for (Reserva reserva : lista) {
+      assertEquals(data, reserva.getDataReserva());
+    }
+  }
+
+  @Test
+  void listarTest() {
+
+    List<Reserva> lista = dao.listar();
+
+    assertEquals(2, lista.size());
+
+  }
+
 
 }
-
 
 

@@ -3,7 +3,7 @@ package br.com.fiap.dao.impl;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+//import javax.persistence.TypedQuery;
 
 import br.com.fiap.dao.PacoteDAO;
 import br.com.fiap.entity.Pacote;
@@ -15,17 +15,23 @@ public class PacoteDAOImpl extends GenericDAOImpl<Pacote, Integer> implements Pa
 		super(entityManager);
 	}
 
+//	@Override
+//	public List<Pacote> buscarPorTransporte(Transporte transporte) {
+//		// Criar a TypedQuery
+//		TypedQuery<Pacote> query =
+//				em.createQuery("from Pacote p where p.transporte = :t", Pacote.class);
+//
+//		// Setar o parâmetro da Query
+//		query.setParameter("t", transporte);
+//
+//		// Executar a TypedQuery
+//		return query.getResultList();
+//	}
+
 	@Override
-	public List<Pacote> listarPorTransporte(Transporte transporte) {
-		// Criar a TypedQuery
-		TypedQuery<Pacote> query =
-				em.createQuery("from Pacote p where p.transporte = :t", Pacote.class);
-
-		// Setar o parâmetro da Query
-		query.setParameter("t", transporte);
-
-		// Executar a TypedQuery
-		return query.getResultList();
+	public List<Pacote> buscarPorTransporte(Transporte transporte) {
+		return em.createQuery("from Pacote p where p.transporte = :D",Pacote.class)
+				.setParameter("D", transporte)
+				.getResultList();
 	}
-
 }
