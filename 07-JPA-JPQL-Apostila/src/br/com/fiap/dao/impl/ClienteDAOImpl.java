@@ -34,7 +34,7 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente,Integer> implements C
   public List<Cliente> buscarPorParteDoNome(String parte) {
     //Criar a Query
     TypedQuery<Cliente> query = 
-        em.createQuery("from Cliente c where c.nome like :p", Cliente.class);
+        em.createQuery("from Cliente c where upper(c.nome) like upper(:p) order by c.nome", Cliente.class);
 
     //Setar parâmetro
     query.setParameter("p", "%"+parte+"%");
@@ -72,6 +72,28 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente,Integer> implements C
         + "r.numeroDias = :d",Cliente.class)
         .setParameter("d", dias)
         .getResultList();
+  }
+  
+  @Override
+  public List<Cliente> buscar(String nome, String cidade) {
+    return em.createNamedQuery("Cliente.porNomeECidade", Cliente.class)
+        .setParameter("S", "%" + nome + "%")
+        .setParameter("C", "%" + cidade + "%")
+        .getResultList();
+  }
+
+  @Override
+  public List<Cliente> buscarPorEstados(List<String> estados) {
+    return em.createNamedQuery("Cliente.porEstados", Cliente.class)
+        .setParameter("e", estados)
+        .getResultList();
+  }
+
+  @Override
+  public long contarPorEstado(String estado) {
+    return em.createQuery("select count(c) from Cliente c where c.endereco.cidade.uf = :e", Long.class)
+        .setParameter("e", estado)
+        .getSingleResult();
   }
 
 }
