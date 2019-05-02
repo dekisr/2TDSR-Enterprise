@@ -25,26 +25,26 @@ class ClienteDAOTeste {
         EntityManagerFactorySingleton
         .getInstance().createEntityManager());
   }
-  
+
   @Test
   void contarPorEstadoTest() {
     long qtd = dao.contarPorEstado("SP");
     assertEquals(1, qtd);
   }
-  
+
   @Test
   void buscarPorEstadosTest() {
     List<String> estados = new ArrayList<String>();
     estados.add("PR");
     estados.add("SP");
-    
+
     List<Cliente> lista = dao.buscarPorEstados(estados);
     for (Cliente cliente : lista) {
       assertTrue(estados.contains(cliente.getEndereco()
           .getCidade().getUf()));
     }
   }
-  
+
   @Test
   void buscarPorNomeECidateTest() {
     List<Cliente> lista = dao.buscar("Le", "Lon");

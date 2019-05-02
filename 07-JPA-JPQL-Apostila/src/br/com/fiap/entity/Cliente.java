@@ -22,88 +22,87 @@ import javax.persistence.TemporalType;
   @NamedQuery(name="Cliente.porNomeECidade",
       query="select c from Cliente c where c.nome like :S and c.endereco.cidade.nome like :C"),
   @NamedQuery(name="Cliente.porEstados",
-      query="select c from Cliente c where c.endereco.cidade.uf in :e")
+  query="select c from Cliente c where c.endereco.cidade.uf in :e")
 })
-
 
 @Entity
 @SequenceGenerator(name="seqCliente", sequenceName="SEQ_CLIENTE", allocationSize=1)
 public class Cliente {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seqCliente")
-	private int id;
-	
-	@Column(nullable=false)
-	private String nome;
-	
-	@Column(length=11,nullable=false)
-	private String cpf;
-	
-	@Temporal(TemporalType.DATE)
-	@Column(name="DT_NASCIMENTO")
-	private Calendar dataNascimento;
-	
-	@OneToOne(cascade=CascadeType.ALL)
-	private Endereco endereco;
-	
-	@ManyToMany(cascade=CascadeType.PERSIST)
-	private List<Pacote> pacotes;
+  @Id
+  @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seqCliente")
+  private int id;
 
-	public Cliente(String nome, String cpf, Calendar dataNascimento, Endereco endereco, List<Pacote> pacotes) {
-		this.nome = nome;
-		this.cpf = cpf;
-		this.dataNascimento = dataNascimento;
-		this.endereco = endereco;
-		this.pacotes = pacotes;
-	}
-	
-	public Cliente() {
-	}
+  @Column(nullable=false)
+  private String nome;
 
-	public String getNome() {
-		return nome;
-	}
+  @Column(length=11,nullable=false)
+  private String cpf;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+  @Temporal(TemporalType.DATE)
+  @Column(name="DT_NASCIMENTO")
+  private Calendar dataNascimento;
 
-	public String getCpf() {
-		return cpf;
-	}
+  @OneToOne(cascade=CascadeType.ALL)
+  private Endereco endereco;
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+  @ManyToMany(cascade=CascadeType.PERSIST)
+  private List<Pacote> pacotes;
 
-	public Calendar getDataNascimento() {
-		return dataNascimento;
-	}
+  public Cliente(String nome, String cpf, Calendar dataNascimento, Endereco endereco, List<Pacote> pacotes) {
+    this.nome = nome;
+    this.cpf = cpf;
+    this.dataNascimento = dataNascimento;
+    this.endereco = endereco;
+    this.pacotes = pacotes;
+  }
 
-	public void setDataNascimento(Calendar dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
+  public Cliente() {
+  }
 
-	public int getId() {
-		return id;
-	}
+  public String getNome() {
+    return nome;
+  }
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
+  public String getCpf() {
+    return cpf;
+  }
 
-	public List<Pacote> getPacotes() {
-		return pacotes;
-	}
+  public void setCpf(String cpf) {
+    this.cpf = cpf;
+  }
 
-	public void setPacotes(List<Pacote> pacotes) {
-		this.pacotes = pacotes;
-	}
-	
-	
+  public Calendar getDataNascimento() {
+    return dataNascimento;
+  }
+
+  public void setDataNascimento(Calendar dataNascimento) {
+    this.dataNascimento = dataNascimento;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public Endereco getEndereco() {
+    return endereco;
+  }
+
+  public void setEndereco(Endereco endereco) {
+    this.endereco = endereco;
+  }
+
+  public List<Pacote> getPacotes() {
+    return pacotes;
+  }
+
+  public void setPacotes(List<Pacote> pacotes) {
+    this.pacotes = pacotes;
+  }
+
+
 }

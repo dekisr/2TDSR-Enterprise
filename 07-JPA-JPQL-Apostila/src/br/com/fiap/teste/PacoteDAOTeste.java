@@ -1,7 +1,7 @@
 package br.com.fiap.teste;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.hibernate.engine.transaction.jta.platform.internal.TransactionManagerBasedSynchronizationStrategy;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
