@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
 	<title>Regras do Jogo</title>
 </h:head>
 <h:body>
-
+	
 	<h:form>
 		<h:panelGrid columns="2">
 			<h:outputLabel value="NAC" />
@@ -17,21 +17,18 @@
 			<h:inputText value="#{disciplinaBean.ps}" />
 			<h:outputLabel value="AM" />
 			<h:inputText value="#{disciplinaBean.am}" />
-			<h:commandButton action="#{disciplinaBean.calcular()}"
-				value="Calcular" />
-			<h:commandButton action="#{disciplinaBean.calcularPS()}"
-				value="Calcular PS" />
+			<h:commandButton action="#{disciplinaBean.calcular()}" value="Calcular" />
+			<h:commandButton action="#{disciplinaBean.calcularPS()}" value="Calcular PS" />
 			<h:outputLabel value="Média" />
 			<h:outputText value="#{disciplinaBean.media}" />
 			<h:outputLabel value="Passou" />
 			<h:outputText value="#{disciplinaBean.passou?'Sim':'Não'}" />
 			<h:outputLabel value="Número Aulas" />
 			<h:inputText value="#{disciplinaBean.aulas}" />
-			<h:commandButton action="#{disciplinaBean.calcularFaltas()}"
-				value="Calcular Faltas" />
-			<h:outputText value="#{disciplinaBean.faltas}" />
-		</h:panelGrid>
+			<h:commandButton action="#{disciplinaBean.calcularFaltas()}" value="Calcular Faltas" />
+			<h:outputText value="#{disciplinaBean.faltas}" />			
+		</h:panelGrid>		
 	</h:form>
-
-</h:body>
+	
+</h:body>	   
 </html>
